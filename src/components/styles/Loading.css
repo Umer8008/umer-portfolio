@@ -1,0 +1,147 @@
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: var(--vh);
+  background-color: #070607;
+  z-index: 999999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.7s ease;
+  pointer-events: all;
+  user-select: none;
+}
+
+.loading-screen.loading-exit {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loading-ambient-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle at center,
+    rgba(128, 0, 32, 0.18) 0%,
+    rgba(65, 8, 18, 0.08) 50%,
+    rgba(7, 6, 7, 0) 75%
+  );
+  pointer-events: none;
+}
+
+.loading-header-minimal {
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.loading-brand {
+  font-family: "Geist", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #7a1827;
+}
+
+.loading-center {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.loading-ember-point {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.loading-ember-pulse {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(160, 25, 45, 0.5) 0%, transparent 70%);
+  animation: emberPulse 2s ease-in-out infinite;
+}
+
+.loading-ember-core {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #ff8c38;
+  box-shadow: 0 0 10px #ff7a29, 0 0 4px #9e1b32;
+}
+
+@keyframes emberPulse {
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.9;
+  }
+}
+
+.loading-title {
+  margin: 0;
+  font-family: "Algerian", "URW Algerian", "Cinzel Decorative", "Times New Roman", serif;
+  font-size: clamp(22px, 3.5vw, 36px);
+  letter-spacing: 8px;
+  color: #9e1b32;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-shadow: 0 0 16px rgba(160, 25, 45, 0.5);
+}
+
+.loading-subtext {
+  margin: 10px 0 28px;
+  font-family: "Geist", sans-serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #8c828e;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.loading-progress-track {
+  width: clamp(180px, 30vw, 280px);
+  height: 2px;
+  background-color: rgba(45, 8, 18, 0.6);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.loading-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #540c18, #9e1b32, #d93248);
+  box-shadow: 0 0 8px rgba(180, 30, 50, 0.8);
+  transition: width 0.15s ease-out;
+}
+
+.loading-percentage {
+  margin-top: 14px;
+  font-family: "Geist", sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #6e6470;
+  font-weight: 500;
+}

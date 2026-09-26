@@ -1,0 +1,384 @@
+.landing-section {
+  width: 100%;
+  max-width: var(--cMaxWidth);
+  margin: auto;
+  position: relative;
+  height: var(--vh);
+  background-color: var(--backgroundColor);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-dark-vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(22, 5, 10, 0.35) 0%,
+    rgba(7, 6, 7, 0.85) 65%,
+    rgba(7, 6, 7, 1) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.landing-container.hero-container {
+  width: var(--cWidth);
+  max-width: 1400px;
+  margin: auto;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hero-content {
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* Category / Identity Prefix */
+.hero-prefix {
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: #7a1827;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.hero-prefix.is-visible {
+  opacity: 0.9;
+  transform: translateY(0);
+}
+
+/* Primary Name in Algerian Font */
+.hero-name {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  font-family: "Algerian", "URW Algerian", "Cinzel Decorative", "Times New Roman", serif;
+  font-size: clamp(36px, 7vw, 102px);
+  font-weight: 700;
+  letter-spacing: clamp(4px, 1.3vw, 16px);
+  line-height: 1.1;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.hero-name-space {
+  width: clamp(14px, 2.5vw, 36px);
+}
+
+/* Dynamic Firelight-Illuminated Character */
+.hero-char {
+  display: inline-block;
+  opacity: calc(0.04 + var(--illum, 0) * 0.96);
+  color: rgb(
+    calc(75 + var(--illum, 0) * 85),
+    calc(6 + var(--illum, 0) * 20),
+    calc(18 + var(--illum, 0) * 35)
+  );
+  text-shadow:
+    0 0 calc(var(--illum, 0) * 18px) rgba(190, 30, 50, calc(var(--illum, 0) * 0.85)),
+    0 0 calc(var(--illum, 0) * 5px) rgba(255, 140, 50, calc(var(--illum, 0) * 0.7));
+  filter: blur(calc((1 - var(--illum, 0)) * 2px));
+  transform: scale(calc(0.97 + var(--illum, 0) * 0.03));
+  will-change: opacity, color, text-shadow, filter;
+}
+
+.hero-char.is-confirmed {
+  opacity: 1 !important;
+  color: #9e1b32 !important;
+  text-shadow:
+    0 0 16px rgba(175, 25, 45, 0.6),
+    0 0 3px rgba(255, 120, 50, 0.4) !important;
+  filter: blur(0) !important;
+  transform: scale(1) !important;
+  transition: opacity 0.8s ease, color 0.8s ease, text-shadow 0.8s ease, filter 0.8s ease !important;
+}
+
+/* Secondary: Role - Dynamic Illumination */
+.hero-role {
+  margin-top: 22px;
+  opacity: calc(0.03 + var(--illum, 0) * 0.97);
+  filter: blur(calc((1 - var(--illum, 0)) * 2.5px));
+  transform: translateY(calc((1 - var(--illum, 0)) * 5px));
+  will-change: opacity, filter, transform;
+}
+
+.hero-role h2 {
+  margin: 0;
+  font-family: "Geist", sans-serif;
+  font-size: clamp(14px, 2vw, 22px);
+  font-weight: 500;
+  letter-spacing: clamp(4px, 0.8vw, 8px);
+  color: rgb(
+    calc(80 + var(--illum, 0) * 130),
+    calc(60 + var(--illum, 0) * 145),
+    calc(75 + var(--illum, 0) * 140)
+  );
+  text-transform: uppercase;
+}
+
+.hero-role.is-confirmed {
+  opacity: 1 !important;
+  filter: blur(0) !important;
+  transform: translateY(0) !important;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.hero-role.is-confirmed h2 {
+  color: #d6cfd8 !important;
+}
+
+/* Third: Supporting Pillars - Dynamic Illumination */
+.hero-pillars {
+  margin-top: 14px;
+  opacity: calc(0.02 + var(--illum, 0) * 0.98);
+  filter: blur(calc((1 - var(--illum, 0)) * 2.5px));
+  transform: translateY(calc((1 - var(--illum, 0)) * 4px));
+  will-change: opacity, filter, transform;
+}
+
+.hero-pillars p {
+  margin: 0;
+  font-family: "Geist", sans-serif;
+  font-size: clamp(11px, 1.2vw, 14px);
+  font-weight: 400;
+  letter-spacing: clamp(2.5px, 0.5vw, 4.5px);
+  color: rgb(
+    calc(70 + var(--illum, 0) * 75),
+    calc(40 + var(--illum, 0) * 95),
+    calc(55 + var(--illum, 0) * 95)
+  );
+  text-transform: uppercase;
+}
+
+.hero-pillars.is-confirmed {
+  opacity: 1 !important;
+  filter: blur(0) !important;
+  transform: translateY(0) !important;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.hero-pillars.is-confirmed p {
+  color: #948c98 !important;
+}
+
+/* Fourth: Conceptual Signature - Dynamic Illumination */
+.hero-signature {
+  margin-top: 26px;
+  opacity: calc(0.02 + var(--illum, 0) * 0.98);
+  filter: blur(calc((1 - var(--illum, 0)) * 2px));
+  transform: translateY(calc((1 - var(--illum, 0)) * 3px));
+  will-change: opacity, filter, transform;
+}
+
+.hero-signature-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 0;
+}
+
+.hero-signature-line span {
+  font-family: "Geist", sans-serif;
+  font-size: clamp(10px, 1.05vw, 12px);
+  font-weight: 500;
+  letter-spacing: clamp(3px, 0.5vw, 5px);
+  color: rgb(
+    calc(80 + var(--illum, 0) * 78),
+    calc(15 + var(--illum, 0) * 35),
+    calc(28 + var(--illum, 0) * 42)
+  );
+  text-transform: uppercase;
+}
+
+.hero-signature-line .dot {
+  color: #540c18;
+  margin: 0 10px;
+}
+
+.hero-signature.is-confirmed {
+  opacity: 0.95 !important;
+  filter: blur(0) !important;
+  transform: translateY(0) !important;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.hero-signature.is-confirmed .hero-signature-line span {
+  color: #9e3246 !important;
+}
+
+/* Subtle Scroll Hint */
+.hero-scroll-cue {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.9s ease;
+}
+
+.hero-scroll-cue.is-visible {
+  opacity: 0.85;
+}
+
+.hero-scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-scroll-text {
+  font-size: 9.5px;
+  letter-spacing: 3.5px;
+  color: #73646f;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, #800020, transparent);
+  animation: heroScrollPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes heroScrollPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scaleY(0.7);
+    transform-origin: top;
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+/* 3D Character Model Container */
+.character-model {
+  height: 80vh;
+  position: absolute;
+  max-width: 1920px;
+  max-height: 1080px;
+  transform: translateX(-50%);
+  width: 100%;
+  left: 50%;
+  z-index: 2;
+  bottom: 40px;
+  pointer-events: inherit;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.character-model canvas {
+  position: relative;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.character-hover {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 1025px) {
+  .character-model {
+    height: 100vh;
+    bottom: 0;
+    z-index: 2;
+    position: fixed;
+    opacity: 0;
+  }
+}
+
+/* Responsive Breakpoints */
+@media screen and (max-width: 768px) {
+  .hero-name {
+    letter-spacing: clamp(2px, 0.8vw, 8px);
+  }
+  .hero-role h2 {
+    letter-spacing: 3px;
+  }
+  .hero-pillars p {
+    letter-spacing: 2px;
+  }
+  .hero-signature-line span {
+    letter-spacing: 2.5px;
+  }
+  .hero-signature-line .dot {
+    margin: 0 6px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-content {
+    padding: 0 12px;
+  }
+  .hero-prefix {
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 14px;
+  }
+  .hero-pillars p {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    /* allow wrapping on very narrow screens */
+    white-space: normal;
+    text-align: center;
+  }
+  .hero-signature-line {
+    font-size: 9px;
+  }
+  .hero-signature-line span {
+    letter-spacing: 2px;
+  }
+  .hero-signature-line .dot {
+    margin: 0 4px;
+  }
+  .hero-scroll-cue {
+    bottom: max(20px, env(safe-area-inset-bottom, 20px));
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .hero-name {
+    font-size: clamp(28px, 8.5vw, 48px);
+  }
+}
+

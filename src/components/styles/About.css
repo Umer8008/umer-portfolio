@@ -1,0 +1,91 @@
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  place-items: center;
+  position: relative;
+  opacity: 1;
+  height: auto;
+  width: var(--cWidth);
+  margin: auto;
+}
+.about-me {
+  padding: 50px 0px 60px;
+  width: 500px;
+  max-width: calc(100% - 15px);
+}
+.about-me h3 {
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  font-weight: 500;
+  color: #9e1b32;
+  text-shadow: 0 0 10px rgba(158, 27, 50, 0.3);
+}
+
+.about-me p {
+  font-size: clamp(18px, 4.5vw, 33px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+@media only screen and (min-width: 600px) {
+  .about-section {
+    justify-content: center;
+  }
+}
+/* Mobile/tablet: Add vertical padding since GSAP doesn't control the About section layout.
+   On desktop, the section is height: var(--vh) and GSAP animates it into view. On mobile,
+   it's just a normal block element that needs natural spacing. */
+@media only screen and (max-width: 1024px) {
+  .about-section {
+    padding: 60px 0 40px;
+    width: var(--cWidth);
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    opacity: 1;
+  }
+  .about-me {
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    transform: none;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .about-section {
+    justify-content: center;
+  }
+  .about-me {
+    width: 600px;
+    max-width: 100%;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  .about-section {
+    width: var(--cWidth);
+    justify-content: right;
+    max-width: 1920px;
+    height: var(--vh);
+    padding: 0px;
+    opacity: 1;
+  }
+  .about-me {
+    padding: 0px;
+    width: 50%;
+  }
+  .about-me p {
+    font-size: 1.9vw;
+    line-height: 2.3vw;
+  }
+}
+@media only screen and (min-width: 1950px) {
+  .about-me p {
+    font-size: 2.5rem;
+    line-height: 2.7rem;
+  }
+}

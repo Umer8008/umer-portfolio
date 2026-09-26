@@ -1,0 +1,445 @@
+/* =========================================================
+   SKILLS CHAIN / TECHNICAL NETWORK STYLES
+   Matte Obsidian + Deep Burgundy Schematic Architecture
+   ========================================================= */
+
+.skills-chain-section {
+  width: 100%;
+  margin-top: 55px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Central Bridge Separator between 3D Spheres and Technical Chain */
+.skills-chain-bridge-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 45px;
+  position: relative;
+}
+
+.bridge-vertical-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(180deg, rgba(158, 27, 50, 0.1), rgba(158, 27, 50, 0.85), #9e1b32);
+  position: relative;
+}
+
+.bridge-junction-node {
+  width: 9px;
+  height: 9px;
+  background: #9e1b32;
+  border: 2px solid #070607;
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px rgba(158, 27, 50, 0.6);
+  margin-top: -4px;
+}
+
+.bridge-label-badge {
+  margin-top: 14px;
+  font-family: "Geist", -apple-system, sans-serif;
+  font-size: 10.5px;
+  letter-spacing: 3px;
+  color: #a32238;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: rgba(15, 10, 13, 0.9);
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(158, 27, 50, 0.3);
+  /* Prevent overflow on narrow screens */
+  text-align: center;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Category Sector Container */
+.skills-category-sector {
+  position: relative;
+  margin-bottom: 50px;
+  background: rgba(10, 8, 11, 0.7);
+  border: 1px solid rgba(158, 27, 50, 0.18);
+  border-radius: 16px;
+  padding: 32px 28px 36px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.sector-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(158, 27, 50, 0.15);
+  position: relative;
+  z-index: 2;
+}
+
+.sector-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sector-code {
+  font-family: "Geist", monospace;
+  font-size: 11px;
+  color: #9e1b32;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.sector-title {
+  margin: 0;
+  font-family: "Geist", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #f0ecf0;
+}
+
+.sector-badge {
+  font-family: "Geist", monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #9e8992;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 3px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Network Canvas & Node Grid */
+.network-stage {
+  position: relative;
+  width: 100%;
+}
+
+/* SVG Overlay for Organic/Zigzag Wires */
+.network-svg-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.network-wire {
+  fill: none;
+  stroke: rgba(158, 27, 50, 0.28);
+  stroke-width: 1.25px;
+  transition: stroke 0.3s ease, stroke-width 0.3s ease;
+}
+
+.network-wire.wire-highlighted {
+  stroke: rgba(224, 45, 75, 0.95);
+  stroke-width: 2px;
+  filter: drop-shadow(0 0 6px rgba(158, 27, 50, 0.6));
+}
+
+.network-wire-pulse {
+  fill: none;
+  stroke: #ff4d6d;
+  stroke-width: 2px;
+  stroke-dasharray: 8 40;
+  animation: pulseFlow 2.8s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes pulseFlow {
+  from {
+    stroke-dashoffset: 48;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.network-junction-dot {
+  fill: #9e1b32;
+  transition: r 0.2s ease, fill 0.2s ease;
+}
+
+.network-junction-dot.dot-highlighted {
+  fill: #ff4d6d;
+  r: 4px;
+}
+
+/* Nodes Grid */
+.network-nodes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Compact grid for smaller categories (≤ 6 nodes) */
+.network-nodes-grid.compact-grid {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  max-width: 820px;
+}
+
+/* Skill Rectangular Node / Card */
+.skill-node-card {
+  position: relative;
+  background: #0d0b0f;
+  border: 1px solid rgba(158, 27, 50, 0.22);
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 48px;
+  box-sizing: border-box;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              background-color 0.25s ease,
+              box-shadow 0.25s ease;
+  user-select: none;
+}
+
+/* Subtle Matte Terminal Pins on Card Edges */
+.node-pin-left,
+.node-pin-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  background: #540c18;
+  border-radius: 50%;
+  border: 1px solid #140d12;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.node-pin-left {
+  left: -2.5px;
+}
+
+.node-pin-right {
+  right: -2.5px;
+}
+
+.node-inner-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.node-status-indicator {
+  width: 6px;
+  height: 6px;
+  background: rgba(158, 27, 50, 0.45);
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.node-title {
+  font-family: "Geist", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #e5e0e4;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.2s ease;
+}
+
+.node-cluster-badge {
+  font-family: "Geist", monospace;
+  font-size: 9px;
+  color: #7d6b73;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+/* Card Hover / Active State */
+.skill-node-card:hover,
+.skill-node-card.card-highlighted {
+  transform: translateY(-2px);
+  background: #140e13;
+  border-color: rgba(158, 27, 50, 0.65);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 12px rgba(158, 27, 50, 0.25);
+}
+
+.skill-node-card:hover .node-title,
+.skill-node-card.card-highlighted .node-title {
+  color: #ffffff;
+}
+
+.skill-node-card:hover .node-status-indicator,
+.skill-node-card.card-highlighted .node-status-indicator {
+  background: #ff4d6d;
+  box-shadow: 0 0 8px rgba(255, 77, 109, 0.8);
+}
+
+.skill-node-card:hover .node-pin-left,
+.skill-node-card:hover .node-pin-right,
+.skill-node-card.card-highlighted .node-pin-left,
+.skill-node-card.card-highlighted .node-pin-right {
+  background: #ff4d6d;
+  transform: translateY(-50%) scale(1.3);
+}
+
+.skill-node-card:hover .node-cluster-badge,
+.skill-node-card.card-highlighted .node-cluster-badge {
+  color: #a32238;
+}
+
+/* Bottom Category Interconnect Conduits */
+.category-bridge-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: -25px 0 25px;
+  position: relative;
+  z-index: 2;
+}
+
+.conduit-line {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(180deg, rgba(158, 27, 50, 0.6), rgba(158, 27, 50, 0.2));
+}
+
+.conduit-node {
+  width: 5px;
+  height: 5px;
+  background: #9e1b32;
+  border-radius: 50%;
+  margin-top: -2px;
+}
+
+/* Progressive Reveal on Scroll */
+.skills-chain-section .fade-in-node {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skills-chain-section.is-revealed .fade-in-node {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+@media screen and (max-width: 1024px) {
+  .skills-category-sector {
+    padding: 24px 20px 28px;
+  }
+  .network-nodes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px 18px;
+  }
+  .network-nodes-grid.compact-grid {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .skills-chain-section {
+    margin-top: 40px;
+  }
+  .skills-category-sector {
+    padding: 20px 16px 24px;
+    margin-bottom: 35px;
+  }
+  .sector-title {
+    font-size: 17px;
+  }
+  .network-nodes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .network-nodes-grid.compact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .skill-node-card {
+    padding: 10px 12px;
+    min-height: 44px;
+  }
+  .node-title {
+    font-size: 12.5px;
+  }
+  .node-cluster-badge {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .network-nodes-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .network-nodes-grid.compact-grid {
+    grid-template-columns: 1fr;
+  }
+  .skill-node-card {
+    min-height: 42px;
+    padding: 8px 12px;
+  }
+  .sector-badge {
+    display: none;
+  }
+  .sector-header {
+    margin-bottom: 20px;
+  }
+  /* Bridge badge: reduce letter-spacing so it wraps/fits on 360px+ phones */
+  .bridge-label-badge {
+    letter-spacing: 1.5px;
+    font-size: 9.5px;
+    padding: 4px 10px;
+    white-space: normal;
+    line-height: 1.5;
+  }
+  /* Sector title stays readable on very small screens */
+  .sector-title {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+  }
+  .sector-code {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+  .sector-title-wrap {
+    gap: 8px;
+  }
+  /* Category sector: tighter padding on smallest phones */
+  .skills-category-sector {
+    padding: 16px 12px 20px;
+  }
+}
+
+/* Very small phones: 360px and below */
+@media screen and (max-width: 360px) {
+  .bridge-label-badge {
+    letter-spacing: 1px;
+    font-size: 9px;
+  }
+  .sector-title {
+    font-size: 14px;
+  }
+  .node-title {
+    font-size: 12px;
+  }
+}
